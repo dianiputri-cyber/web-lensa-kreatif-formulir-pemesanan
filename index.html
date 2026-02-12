@@ -1,144 +1,108 @@
-<!doctype html>
-<html lang="id"> 
- <head> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Formulir Pemesanan | Lensa Kreatif</title> 
-  <link rel="stylesheet" href="style.css"> 
- </head> 
- <body> 
-  <header> 
-   <h1>Formulir Pemesanan Jasa</h1> 
-   <nav> 
-    <ul> 
-     <li><a href="index.html">Kembali ke Home</a></li> 
-    </ul> 
-   </nav> 
-  </header> 
-  <main class="container"> 
-   <form id="orderForm"> 
-    <input type="hidden" id="promo_code" name="promo_code" value="DISCOUNT2026"> 
-    <section> 
-     <h3>Data Pribadi</h3> 
-     <div class="form-group"> <label>Nama Lengkap:</label> 
-      <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required> 
-     </div> 
-     <div class="form-group"> <label>Password Akun:</label> 
-      <input type="password" id="pass" name="pass" placeholder="Password untuk cek status"> 
-     </div> 
-     <div class="form-group"> <label>Email:</label> 
-      <input type="email" id="email" name="email" required> 
-     </div> 
-     <div class="form-group"> <label>Nomor WhatsApp (Tel):</label> 
-      <input type="tel" id="telepon" name="telepon"> 
-     </div> 
-     <div class="form-group"> <label>Alamat:</label> <textarea id="alamat" name="alamat" rows="3"></textarea> 
-     </div> 
-     <div class="form-group"> <label>Desa / Kelurahan:</label> <select name="desa" id="desa"> <option>Cipada</option> <option>Jambudipa</option> <option>Kertawangi</option> <option>Padaasih</option> <option>Pasirhalang</option> <option>Pasirlang</option> <option>Sadangmekar</option> <option>Tugumukti</option> </select> 
-     </div> 
-     <div class="form-group"> <label>Kecamatan:</label> <select name="kecamatan" id="kecamatan"> <option>Batujajar</option> <option>Cihampelas</option> <option>Cikalongwetan</option> <option>Cililin</option> <option>Cipatat</option> <option>Cipeundeuy</option> <option>Cipongkor</option> <option>Cisarua</option> </select> 
-     </div> 
-     <div class="form-group"> <label>Kabupaten / Kota:</label> <select name="kab" id="kab"> <option>Kabupaten Bandung</option> <option>Kabupaten Bandung Barat</option> <option>Kabupaten Bogor</option> <option>Kabupaten Bekasi</option> <option>Kabupaten Cianjur</option> <option>Kota Bandung</option> <option>Kota Banjar</option> <option>Kota Bogor</option> <option>Kota Bekasi</option> <option>Kota Cimahi</option> </select> 
-     </div> 
-     <div class="form-group"> <label>Provinsi:</label> <select name="prov" id="prov"> <option>Provinsi Bali</option> <option>Provinsi Banten</option> <option>Provinsi DI Yogyakarta</option> <option>Provinsi DKI Jakarta</option> <option>Provinsi Lampung</option> <option>Provinsi Jawa Barat</option> <option>Provinsi Jawa Tengah</option> <option>Provinsi Jawa Timur</option> </select> 
-     </div> 
-     <div class="form-group"> <label>Kode Pos:</label> 
-      <input type="text" id="kodepos" name="kodepos" placeholder="Masukkan kode pos anda" required> 
-     </div> 
-    </section> 
-    <section> 
-     <h3>Detail Pesanan</h3> 
-     <div class="form-group"> <label>Cari Paket Wisata:</label> 
-      <input type="search" id="cari" name="cari" placeholder="Ketik paket..."> 
-     </div> 
-     <div class="form-group"> <label>Tanggal Pemotretan:</label> 
-      <input type="date" id="tanggal" name="tanggal"> 
-     </div> 
-     <div class="form-group"> <label>Jam Mulai:</label> 
-      <input type="time" id="jam" name="jam"> 
-     </div> 
-     <div class="form-group"> <label>Jumlah Personil:</label> 
-      <input type="number" id="jumlah" name="jumlah" min="1" max="50"> 
-     </div> 
-     <div class="form-group"> <label>Link Referensi Gaya:</label> 
-      <input type="url" id="referensi" name="referensi" placeholder="https://pinterest.com/..."> 
-     </div> 
-     <div class="form-group"> <label>Pilih Warna Tema:</label> 
-      <input type="color" id="warna" name="warna" value="#2c3e50"> 
-     </div> 
-    </section> <!-- ================= TAMBAHAN ================= --> 
-    <section> 
-     <h3>Pilihan Tambahan</h3> 
-     <div class="form-group"> <label>Metode Pembayaran:</label> 
-      <input type="radio" name="payment" value="Transfer" checked> Transfer 
-      <input type="radio" name="payment" value="E-Wallet"> E-Wallet 
-     </div> 
-     <div class="form-group"> <label>Layanan Tambahan:</label> 
-      <input type="checkbox" name="addon" value="Makeup"> Makeup 
-      <input type="checkbox" name="addon" value="Kostum"> Kostum 
-     </div> 
-     <div class="form-group"> <label>Unggah KTP/ID:</label> 
-      <input type="file" id="dokumen" name="dokumen"> 
-     </div> 
-     <br> 
-     <input type="button" value="Cek Ketersediaan" onclick="alert('Slot Tersedia!')"> 
-     <input type="reset" value="Kosongkan Form"> 
-     <hr> 
-     <input type="submit" value="Kirim Pesanan Sekarang"> 
-    </section> 
-   </form> <!-- ================= HASIL ================= --> 
-   <div id="result" style="margin-top:20px; padding:15px; background:#e8f4fd; display:none;"> 
-    <h3>Data Berhasil Disimpan</h3> 
-    <p id="displayData"></p> 
-   </div> 
-  </main> <!-- ================= JAVASCRIPT ================= --> 
-  <script>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lensa Kreatif | Studio Fotografi & Videografi</title>
+   <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    
+  <header id="home">
+    <h1>Lensa Kreatif Studio</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#services">Layanan</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#pricing">Harga</a></li>
+        <li><a href="formulir_pemesanan.html">pesan sekarang</a></li>
+      </ul>
+    </nav>
+  </header>
 
-document.getElementById('orderForm').addEventListener('submit', function(event) {
-event.preventDefault();
+  <main class="container">
 
-const formData = new FormData(this);
-const dataObj = {};
-const addons = formData.getAll('addon');
+    <section id="about">
+      <h2>Tentang <em>Lensa Kreatif</em></h2>
+      <p>Kami adalah studio profesional yang berfokus pada <strong>kualitas visual tinggi</strong>.
+        Didirikan sejak tahun 2015, kami telah membantu lebih dari 500 klien
+        untuk mengabadikan momen berharga mereka.</p>
+      <p>Visi kami adalah: <mark>Menjadi partner kreatif terbaik di industri digital.</mark></p>
+    </section>
 
-formData.forEach((value, key) => {
-if (key === 'addon') {
-dataObj[key] = addons;
-} else if (value instanceof File) {
-dataObj[key] = value.name ? value.name : "Tidak ada file";
-} else {
-dataObj[key] = value;
-}
-});
+    <section id="services">
+      <h2>Layanan Unggulan Kami</h2>
+      <ul>
+        <li>Fotografi Pernikahan (Wedding)</li>
+        <li>Pembuatan Video Profil Perusahaan</li>
+        <li>Editing Podcast & Audio Design</li>
+        <li>Sesi Foto Produk Marketplace</li>
+      </ul>
+    </section>
 
-localStorage.setItem('pesananTerakhir', JSON.stringify(dataObj));
+    <section id="portfolio" class="gallery">
+      <h2>Portfolio Terkini</h2>
+      <div class="media-container">
+        <img src="https://www.diykamera.com/wp-content/uploads/2017/07/Cara-Memotret-Landscape.png"
+             alt="Foto gunung" title="Sesi Foto Outdoor 2023">
+        <img src="https://via.placeholder.com/400x300"
+             alt="Foto Produk Elektronik" title="Produk Gadget">
 
-let outputHtml = '<ul style="list-style:none; padding:0;">';
+        <h3>Showreel Video</h3>
+        <video width="100%" controls>
+          <source src="movie.mp4" type="video/mp4">
+          Browser Anda tidak mendukung tag video.
+        </video>
 
-for (const [key, value] of Object.entries(dataObj)) {
-outputHtml += `
-<li style="margin-bottom:5px; border-bottom:1px solid #eee; padding-bottom:5px;">
-<strong>${key.toUpperCase()}:</strong> ${Array.isArray(value) ? value.join(', ') : value}
-</li>
-`;
-}
+        <h3>Sampel Audio Podcast</h3>
+        <audio controls>
+          <source src="sample-audio.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung tag audio.
+        </audio>
+      </div>
+    </section>
 
-outputHtml += '</ul>';
+    <section id="pricing">
+      <h2>Daftar Harga Paket</h2>
 
-document.getElementById('displayData').innerHTML = outputHtml;
-document.getElementById('result').style.display = 'block';
+      <table>
+        <thead>
+          <tr>
+            <th>Jenis Paket</th>
+            <th>Durasi</th>
+            <th>Harga</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Personal Branding</td>
+            <td>2 Jam</td>
+            <td>Rp 1.500.000</td>
+          </tr>
+          <tr>
+            <td>Corporate Video</td>
+            <td>1 Hari</td>
+            <td>Rp 7.000.000</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2"><strong>Catatan:</strong> Harga belum termasuk biaya transportasi luar kota.</td>
+            <td>Pajak 10%</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
 
-alert("Halo " + dataObj.nama + ", data pesanan Anda telah disimpan!");
-this.reset();
-});
+  </main>
 
-window.addEventListener('load', () => {
-const savedData = localStorage.getItem('pesananTerakhir');
-if (savedData) {
-console.log("Data pesanan terakhir:", JSON.parse(savedData));
-}
-});
+  <footer>
+    <p>&copy; 2023 Lensa Kreatif Studio. Dibuat dengan semangat kreatif.</p>
+    <p>Hubungi kami di:
+      <a href="mailto:info@lensakreatif.com" style="color: yellow;">info@lensakreatif.com</a>
+    </p>
+  </footer>
 
-</script> 
- </body>
+</body>
 </html>
